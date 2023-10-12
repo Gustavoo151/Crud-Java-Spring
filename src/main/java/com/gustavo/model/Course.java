@@ -1,5 +1,6 @@
 package com.gustavo.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -12,6 +13,7 @@ public class Course {
 
     @Id  // Chave primaria de tabela.
     @GeneratedValue(strategy = GenerationType.AUTO) // Essa anotação gera um valor automatioco sempre que a gente insere um resistro no banco de dados.
+    @JsonProperty("_id")  // Essa anotation ser para 'mudar' o nome desse campo que era id para _id, assim nos posibilitando usar esse id
     private long id;
 
     @Column(name = "name", length = 200, nullable = false)  // O Bom de usar essa anotation é que se o nome da coluna for diferente do nome do atributo podemos alterar
